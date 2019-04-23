@@ -4,14 +4,11 @@ import { Fab, TextField } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 class NewDish extends Component {
-    constructor() {
-        super();
-        this.addDish = this.addDish.bind(this);
-    }
 
-  addDish(e) {
+  addDish = (e) => {
     console.log("Agregar platillo");
     e.preventDefault();
+      console.log('imprimir this usando arrowFunction', this);
   }
 
   render() {
