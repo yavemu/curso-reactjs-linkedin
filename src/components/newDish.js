@@ -4,13 +4,19 @@ import { Fab, TextField } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 class NewDish extends Component {
-  addDish() {
+    constructor() {
+        super();
+        this.addDish = this.addDish.bind(this);
+    }
+
+  addDish(e) {
     console.log("Agregar platillo");
+    e.preventDefault();
   }
 
   render() {
     return (
-      <form autoComplete="off">
+      <form autoComplete="off" onSubmit={this.addDish}>
         <TextField
           label="Platillo..."
           type="text"
