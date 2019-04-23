@@ -1,3 +1,10 @@
 h4{
     color: red;
 }
+
+.dish {
+    width: 120px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: cadetblue;
+}
