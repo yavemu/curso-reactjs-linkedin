@@ -17,7 +17,9 @@ class Dish extends Component {
     }
 
     render() {
+        const { params } = this.props.match;
         return <div className='dish'>
+            <h1>{params.name} </h1>
             <h1>{this.props.name}</h1>
             <h3>{this.countIngredients()} ingredients</h3>
             <ul>
