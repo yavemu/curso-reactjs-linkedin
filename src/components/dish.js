@@ -4,9 +4,7 @@ import Button from '@material-ui/core/Button';
 export class Ingredient extends Component {
     render() {
         return <Fragment>
-            <h4>Primer Ingrediente</h4>
-            <h4>Segundo Ingrediente</h4>
-            <h4>Tercer Ingrediente</h4>
+            
         </Fragment>
     }
 }
@@ -22,7 +20,11 @@ class Dish extends Component {
         return <div className='dish'>
             <h1>{this.props.name}</h1>
             <h3>{this.countIngredients()} ingredients</h3>
-            <Ingredient/>
+            <ul>
+                {this.ingredients.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                ))}
+            </ul>
             <Button variant="contained">
                 Default
             </Button>

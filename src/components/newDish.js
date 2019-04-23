@@ -14,6 +14,7 @@ class NewDish extends Component {
         <TextField
           label="Platillo..."
           type="text"
+          margin="normal"
           variant="outlined"
         />
         <Fab

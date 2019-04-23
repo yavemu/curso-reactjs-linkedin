@@ -8,3 +8,13 @@ h4{
     border-radius: 5px;
     background-color: cadetblue;
 }
+
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+.dish-form-icon {
+  margin-top: 1rem !important;
+  margin-left: 1rem !important;
+}
