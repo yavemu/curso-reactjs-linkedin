@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class Dish extends Component {
     render() {
-        return <div>
+        return <Fragment>
             <h1>Un Platillo</h1>
-        </div>
+        </Fragment>
     }
 }
 

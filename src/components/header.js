@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class Header extends Component{
     render(){
-        return <div>
+        return <Fragment>
             <h1>Platillos Típicos</h1>
-        </div>
+        </Fragment>
     }
 }
 
