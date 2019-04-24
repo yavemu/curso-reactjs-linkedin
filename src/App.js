@@ -2,10 +2,15 @@ import React from 'react';
 import './styles/App.css';
 import Header from './components/header';
 import NewDish from './components/newDish';
-import Button from "@material-ui/core/Button";
+import Dishes from './components/dishes';
+
+import data from './assets/data/dishes.json';
 
 class App extends React.Component {
-  dishes = ['Tacos','Ceviche','Paella'];
+  
+  state = {
+    dishes: data.dishes
+  }
 
   showDishes = e => {
     e.preventDefault();
@@ -17,9 +22,7 @@ class App extends React.Component {
       <div className="App">
         <Header/>
         <NewDish />
-        <Button variant="contained" color="secondary" onClick={this.showDishes}>
-          Elegir
-        </Button>
+        <Dishes dishes={this.state.dishes} />
       </div>
     );
   }

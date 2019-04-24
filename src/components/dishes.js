@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import {  Button, GridList } from "@material-ui/core";
+import { GridList } from "@material-ui/core";
 
-import data from '../assets/data/dishes.json';
 import Dish from "./dish.js";
 
 export class Dishes extends Component {
@@ -13,13 +12,8 @@ export class Dishes extends Component {
   render() {
     return (
       <div>
-        <h1>Platillos</h1>
-        <Button variant="contained" color="secondary" onClick={this.goBack}>
-          Regresar
-        </Button>
-
         <GridList>
-          {data.dishes.map((dish, index) => (
+          {this.props.dishes.map((dish, index) => (
             <Dish key={index} {...dish} />
           ))}
         </GridList>
