@@ -11,10 +11,12 @@ export class Countries extends Component {
   }
   
   componentDidMount() {
+    console.log("componentDidMount");    
     this.getCountries();
   }
 
-  getCountries() {
+  getCountries = () => {
+    console.log("getCountries");
     fetch("https://restcountries.eu/rest/v2/all")
       .then(response => response.json())
       .then(data => {
