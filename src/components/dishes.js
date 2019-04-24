@@ -1,15 +1,8 @@
 import React, { Component } from "react";
-import {
-  Button,
-  List,
-  ListItem,
-  ListSubheader,
-  ListItemText,
-  ListItemIcon
-} from "@material-ui/core";
+import {  Button, GridList } from "@material-ui/core";
 
-import Restaurant from "@material-ui/icons/Restaurant";
 import data from '../assets/data/dishes.json';
+import Dish from "./dish.js";
 
 export class Dishes extends Component {
   goBack = e => {
@@ -25,19 +18,11 @@ export class Dishes extends Component {
           Regresar
         </Button>
 
-        <List
-          component="nav"
-          subheader={<ListSubheader component="div">Platillos</ListSubheader>}
-        >
+        <GridList>
           {data.dishes.map((dish, index) => (
-            <ListItem button key={index}>
-              <ListItemIcon>
-                <Restaurant />
-              </ListItemIcon>
-              <ListItemText inset primary={dish.name} />
-            </ListItem>
+            <Dish key={index} {...dish} />
           ))}
-        </List>
+        </GridList>
       </div>
     );
   }

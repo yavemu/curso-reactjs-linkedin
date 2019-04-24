@@ -1,36 +1,45 @@
-import React, { Component, Fragment } from 'react';
-import Button from '@material-ui/core/Button';
+import React, { Component } from "react";
+import {
+    Card,
+    CardContent,
+    List,
+    ListItem,
+    ListSubheader,
+    ListItemText,
+    ListItemIcon
+} from "@material-ui/core";
 
-export class Ingredient extends Component {
-    render() {
-        return <Fragment>
-            
-        </Fragment>
-    }
-}
+import ScatterPlot from "@material-ui/icons/ScatterPlot";
 
 class Dish extends Component {
-    ingredients = ["Tortilla","Carne","Cebolla"];
+    ingredients = ["Tortilla", "Carne", "Cebolla"];
 
-    countIngredients(){
+    countIngredients() {
         return this.ingredients.length;
     }
 
     render() {
-        const { params } = this.props.match;
-        return <div className='dish'>
-            <h1>{params.name} </h1>
-            <h1>{this.props.name}</h1>
-            <h3>{this.countIngredients()} ingredients</h3>
-            <ul>
-                {this.ingredients.map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
-                ))}
-            </ul>
-            <Button variant="contained">
-                Default
-            </Button>
-        </div>
+        return (
+            <Card className="card">
+                <CardContent>
+                    <List
+                        component="nav"
+                        subheader={
+                            <ListSubheader component="div"> {this.props.name}</ListSubheader>
+                        }
+                    >
+                        {this.props.ingredients.map((ingredient, index) => (
+                            <ListItem button key={index}>
+                                <ListItemIcon>
+                                    <ScatterPlot />
+                                </ListItemIcon>
+                                <ListItemText inset primary={ingredient} />
+                            </ListItem>
+                        ))}
+                    </List>
+                </CardContent>
+            </Card>
+        );
     }
 }
 
