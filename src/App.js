@@ -17,12 +17,18 @@ class App extends React.Component {
     this.props.history.push("/platillos");
   };
 
+  updateDish = (index, newName) => {
+    let newState = {...this.state};
+    newState.dishes[index].name = newName;
+    this.setState(newState);
+  };
+
   render() {
     return (
       <div className="App">
         <Header/>
         <NewDish />
-        <Dishes dishes={this.state.dishes} />
+        <Dishes dishes={this.state.dishes} onUpdateDish={this.updateDish} />
       </div>
     );
   }
