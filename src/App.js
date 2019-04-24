@@ -22,12 +22,27 @@ class App extends React.Component {
     newState.dishes[index].name = newName;
     this.setState(newState);
   };
+  
+  addDish = (newName) => {
+    let newState = { ...this.state };
+
+    const newDish = {
+      id: newState.dishes.length,
+      name: newName,
+      country: null,
+      ingredients: []
+    }
+
+    newState.dishes.push(newDish);
+
+    this.setState(newState);
+  }
 
   render() {
     return (
       <div className="App">
         <Header/>
-        <NewDish />
+        <NewDish onAddDish={this.addDish}/>
         <Dishes dishes={this.state.dishes} onUpdateDish={this.updateDish} />
       </div>
     );
