@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
+import { Button } from "@material-ui/core";
+import { Country } from "./country";
 
 export class Countries extends Component {
   constructor() {
@@ -8,6 +9,7 @@ export class Countries extends Component {
       countries: []
     };
   }
+  
   componentDidMount() {
     this.getCountries();
   }
@@ -21,6 +23,16 @@ export class Countries extends Component {
       .catch(error => console.log(error));
   }
 
+  delete = name => {
+    let newState = { ...this.state };
+
+    newState.countries = newState.countries.filter(
+      country => country.name !== name
+    );
+
+    this.setState(newState);
+  };
+
   render() {
     return (
       <div>
@@ -32,6 +44,12 @@ export class Countries extends Component {
         >
           Cargar lista
         </Button>
+
+        <ul>
+          {this.state.countries.map((country, index) => (
+            <Country key={index} name={country.name} onDelete={this.delete} />
+          ))}
+        </ul>
       </div>
     );
   }
